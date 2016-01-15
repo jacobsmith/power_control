@@ -1,0 +1,27 @@
+def turn_on_outlet(num)
+	`./outlet #{num} on`
+	`./outlet #{num} on`
+end
+
+def turn_off_outlet(num)
+	`./outlet #{num} off`
+	`./outlet #{num} off`
+end
+
+def pressed(direction)
+	case direction
+	when 'up'
+		turn_on_outlet(4)
+		# do an up thing
+	when 'down'
+		turn_off_outlet(4)
+		# do down
+	when 'left'
+		# do left
+	when 'right'
+		# do right
+	end
+end
+
+require_relative './get_keys'
+

@@ -1,0 +1,10 @@
+loop do
+	arg = ARGF.gets
+	puts "ARG: arg"
+	case arg
+	when 'left'
+		puts 'got left'
+	end
+	sleep 0.1
+end
+

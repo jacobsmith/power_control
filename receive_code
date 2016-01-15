@@ -1,0 +1,30 @@
+require 'io/console'
+require 'io/wait'
+
+system("stty raw -echo")
+
+loop do
+	char = STDIN.read_nonblock(1) rescue nil
+#	puts "recieved: #{char.codepoints}" if char
+	char << STDIN.getc while STDIN.ready?
+#	puts "all chars: #{char.codepoints}" if char
+	exit if char == "\u0003"
+
+	if char
+		case char.codepoints
+		when [27, 91, 54, 126]
+			puts 'right'
+		when [27]
+			puts 'down'
+		when [27, 91, 49, 53, 59, 50, 126]
+			puts 'down'
+		when [27, 91, 53, 126]
+			puts 'left'
+		when [98]
+			puts 'up'
+		end
+	end
+
+	sleep 0.5
+end
+

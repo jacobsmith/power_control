@@ -1,0 +1,2 @@
+echo Playing sound: $1
+omxplayer -o local $1

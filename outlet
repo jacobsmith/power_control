@@ -1,0 +1,36 @@
+#! /usr/bin/ruby
+
+outlets = {
+	1 => {
+	on: 267571,
+	off: 267580
+	},
+
+	2 => {
+	on: 267715,
+	off: 267724
+	},
+
+	3 => {
+	on: 268035,
+	off: 268044
+	},
+
+	4 => {
+	on: 269571,
+	off: 269580
+	},
+
+	5 => {
+	on: 275715,
+	off: 275724
+	}
+}
+
+
+args = ARGV
+code = outlets[args.first.to_i][args.last.to_sym]
+
+Kernel.exec("sudo /home/pi/rfoutlet/codesend #{code}")
+
+
